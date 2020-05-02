@@ -1,14 +1,12 @@
 {
-    "author": "David P. Janes <davidjanes@davidjanes.com>",
+    "author": "David P. Janes <davidjanes@davidjanes.com>", 
     "bugs": {
         "url": "https://github.com/dpjanes/iotdb-translations/issues"
     }, 
     "dependencies": {
-        "iotdb-helpers": "~3.2.3"
+        "iotdb-helpers": "~3.4.14"
     }, 
     "description": "POP Interface for Translations", 
-    "devDependencies": {
-    }, 
     "homepage": "https://github.com/dpjanes/node-iotdb", 
     "license": "Apache-2.0", 
     "main": "index.js", 
@@ -22,5 +20,5 @@
         "cover": "nyc --reporter=html mocha --recursive", 
         "test": "mocha --recursive --bail"
     }, 
-    "version": "1.0.0"
+    "version": "1.0.1"
 }
