@@ -6,7 +6,6 @@
 #   2020-05-02
 #
 
-exit 0
 PACKAGE=iotdb-translations
 DIST_ROOT=/var/tmp/.dist.$$
 
