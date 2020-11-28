@@ -4,9 +4,9 @@
         "url": "https://github.com/dpjanes/iotdb-translations/issues"
     }, 
     "dependencies": {
-        "gettext-parser": "~4.0.3", 
-        "iotdb-fs": "~2.0.2", 
-        "iotdb-helpers": "~3.4.14"
+        "gettext-parser": "~4.0.4", 
+        "iotdb-fs": "~2.1.2", 
+        "iotdb-helpers": "~3.5.2"
     }, 
     "description": "POP Interface for Translations", 
     "homepage": "https://github.com/dpjanes/node-iotdb", 
@@ -22,5 +22,5 @@
         "cover": "nyc --reporter=html mocha --recursive", 
         "test": "mocha --recursive --bail"
     }, 
-    "version": "1.0.3"
+    "version": "1.0.4"
 }
