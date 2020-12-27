@@ -1,11 +1,11 @@
-/**
+/*
  *  test/initialize.js
  *
  *  David Janes
- *  IOTDB
- *  2020-05-02
+ *  IOTDB.org
+ *  2017-12-05
  *
- *  Copyright (2013-2020) David P. Janes
+ *  Copyright (2013-2021) David P. Janes
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -23,29 +23,49 @@
 "use strict"
 
 const _ = require("iotdb-helpers")
+const translations = require("..")
 
 const assert = require("assert")
+const path = require("path")
 
-const translations = require("..")
-const _util = require("./_util")
-
-describe("initialize", function() {
-    let self = {}
-
-    before(function(done) {
-        _.promise(self)
-            .then(_util.initialize)
-            .then(_util.load)
-            .make(sd => {
-                self = sd
-            })
-            .end(done)
-    })
-
-    describe("good", function() {
+describe("translations/initialize", function() {
+    describe("initialize", function() {
         it("works", function(done) {
-            _.promise(self)
-                .end(done)
+            _.promise.make({
+                translations$cfg: {
+                    folders: [
+                        path.join(__dirname, "data"),
+                        path.join(__dirname, "data"),
+                    ],
+                },
+            }) 
+                .then(translations.initialize)
+                .then(_.promise.make(sd => {
+                    assert.ok(sd.translations)
+                    done()
+                }))
+                .catch(done)
+        })
+        it("works with no folders", function(done) {
+            _.promise.make({
+                translations$cfg: {
+                },
+            }) 
+                .then(translations.initialize)
+                .then(_.promise.make(sd => {
+                    assert.ok(sd.translations)
+                    done()
+                }))
+                .catch(done)
+        })
+        it("no translations$cfg - expected fail", function(done) {
+            _.promise.make({
+            }) 
+                .then(translations.initialize)
+                .then(_.promise.make(sd => {
+                    done(new Error("don't expect to get here"))
+                }))
+                .catch(sd => done())
         })
     })
 })

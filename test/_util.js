@@ -2,7 +2,7 @@
  *  test/_util.js
  *
  *  David Janes
- *  IOTDB
+ *  IOTDB.org
  *  2020-05-02
  *
  *  Copyright (2013-2020) David P. Janes
